@@ -80,7 +80,7 @@ module.exports = async ({ github, context }) => {
       })
       console.log(`Issue #${issueNum} closed`);
     } else {
-      console.log(`Issue #${issueNum}: 미완료 PR #${notSubmitted.join(', ')} 있음, 대기`);
+      console.log(`Issue #${issueNum}: 미완료 멤버 ${notSubmitted.join(', ')} 있음, 대기`);
     }
   }
 }
