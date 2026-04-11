@@ -23,15 +23,15 @@ int main() {
         if (ary[i] != target[i]) {
             ++cnt1;
             ary[i] ^= 1;
-            if (i < N - 1) ary[i + 1] ^= 1;
+            ary[i + 1] ^= 1;
             if (i < N - 2) ary[i + 2] ^= 1;
         }
     }
-    for (int i = 1; i < N - 1; ++i) {
+    for (int i = 0; i < N - 1; ++i) {
         if (ary2[i] != target[i]) {
             ++cnt2;
             ary2[i] ^= 1;
-            if (i < N - 1) ary2[i + 1] ^= 1;
+            ary2[i + 1] ^= 1;
             if (i < N - 2) ary2[i + 2] ^= 1;
         }
     }
