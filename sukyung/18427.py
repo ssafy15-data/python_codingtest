@@ -1,3 +1,5 @@
+# 함께 블록 쌓기 - Gold 4
+
 # N:학생 수, M: 한 학생이 가지는 블록 최대 개수, H: 탑 높이
 N, M, H = map(int, input().split())
 stu = []

@@ -1,3 +1,5 @@
+# 탑 - Gold 5
+
 '''
 n = int(input())
 height = list(map(int, input().split()))

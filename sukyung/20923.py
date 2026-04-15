@@ -1,3 +1,5 @@
+# 숫자 할리갈리 게임 - Silver 1
+
 import sys
 input = sys.stdin.readline
 from collections import deque
