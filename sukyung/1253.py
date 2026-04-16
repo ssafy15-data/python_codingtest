@@ -24,7 +24,6 @@ for k in range(N-1, -1, -1):
 
         if arr[i] + arr[j] == num:
             ans += 1
-            print(num, k)
             break
         # arr이 정렬된 상태이므로 num보다 큰지 작은지에 따라 i, j 값 옮겨주면 됨
         elif arr[i] + arr[j] < num:
@@ -32,4 +31,4 @@ for k in range(N-1, -1, -1):
         elif arr[i] + arr[j] > num:
             j -= 1
 
-print("ans:", ans)
+print(ans)
