@@ -1,3 +1,5 @@
+# 전구와 스위치 - Gold 4
+
 def switch(i, b):
     if i-1 >= 0:  # i-1번째 전구가 존재하는 경우
         b[i-1] ^= 1
@@ -17,7 +19,7 @@ else:
     i=1 부터는 i-1이 after와 다른 경우만 확인 후, switch 여부 결정하면 됨
     그러면, i=0인 경우의 수만 나눠서 비교하면 됨
     '''
-    ans = 1e9  # 최댓값 설정
+    ans = int(1e9)  # 최댓값 설정 -> int형 사용할 것이므로 int() 선언
     # 1번 전구를 switch 하는 경우
     bulb = before.copy()
     switch(0, bulb)
