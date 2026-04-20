@@ -16,7 +16,7 @@ module.exports = async ({ github, context }) => {
   }
 
   const issueNumbers = [...issueLineMatch[1].matchAll(/#(\d+)\b/g)]
-    .map(m => parseInt(m[1]));
+    .map(m => parseInt(m[1], 10));
   if (issueNumbers.length === 0) {
     console.log("Error: Can't find issue numbers from issue line");
     return;
