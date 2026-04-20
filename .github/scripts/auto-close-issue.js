@@ -9,14 +9,18 @@ module.exports = async ({ github, context }) => {
   const pr = context.payload.pull_request;
   const body = pr.body || '';
 
-  const issueLineMatch = body.match(/issue:\s*((?:#\d+[\s,]*)+)/i);
+  const issueLineMatch = body.match(/^issue:\s*(.+)$/im);
   if (!issueLineMatch) {
     console.log("Error: Can't find issue numbers from PR");
     return;
   }
 
-  const issueNumbers = [...issueLineMatch[1].matchAll(/#(\d+)/g)]
-    .map(m => parseInt(m[1]));
+  const issueNumbers = [...issueLineMatch[1].matchAll(/#(\d+)\b/g)]
+    .map(m => parseInt(m[1], 10));
+  if (issueNumbers.length === 0) {
+    console.log("Error: Can't find issue numbers from issue line");
+    return;
+  }
   console.log(`connected Issue: ${issueNumbers.map(n => '#' + n).join(', ')}`);
 
   for (const issueNum of issueNumbers) {
