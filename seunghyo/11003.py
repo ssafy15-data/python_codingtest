@@ -1,34 +1,26 @@
 import sys
+from collections import deque
 
-def solve():
-    input = sys.stdin.readline
-    N, L = map(int, input().split())
-    A = list(map(int, input().split()))
-    current_min = A[0]
-    current_count = 1
-    D = [current_min]
+input = sys.stdin.readline
 
-    for idx in range(1, L):
-        if A[idx] < current_min:
-            current_min = A[idx]
-        D.append(current_min)
 
-    for idx in range(L, N):
-        next_d = A[idx]
-        out_d = A[idx - L]
+N, L = map(int, input().split())
+arr = list(map(int, input().split()))
 
-        if current_min == out_d:
-            if current_count == 1:
-                current_min = min(A[idx-L+1:idx])
-            else:
-                current_count -= 1
+queue = deque()
+find = []
 
-        if next_d < current_min:
-            current_min = next_d
-            current_count = 1
+#print(arr)
+for idx in range(N):
+    #print(queue, arr[idx])
+    while queue and arr[queue[-1]] > arr[idx]:
+        queue.pop()
 
-        D.append(current_min)
-        #print(idx, A[idx-L:idx], current_min)
+    queue.append(idx)
+    if queue[0] <= idx - L:
+        queue.popleft()
 
-    print(*D)
-solve()
+    find.append(arr[queue[0]])
+
+
+print(*find)
