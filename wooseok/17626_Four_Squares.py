@@ -20,7 +20,7 @@ n = int(input())
 max_idx = int(n**0.5)
 
 for i in range(1, n + 1):
-    for j in range(1, int(i**0.5)):
+    for j in range(1, int(i**0.5) + 1):
         dp[i] = min(dp[i], dp[i - j**2] + 1)
 
 print(dp[n])
