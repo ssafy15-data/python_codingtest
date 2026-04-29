@@ -16,12 +16,11 @@ class Solution:
                     visited[new_i][new_j] = 1
                     dfs(new_i, new_j)  # 내 상하좌우로 연결된 land가 있는지 탐색
 
-
         for i in range(m):
             for j in range(n):
                 # 아직 방문하지 않은 land이면 섬 검사
                 if grid[i][j]=='1' and not visited[i][j]:
-                    visited[i][j] == 1
+                    visited[i][j] = 1
                     dfs(i, j)
                     island += 1
         
