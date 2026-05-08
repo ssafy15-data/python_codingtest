@@ -36,7 +36,7 @@ class Solution:
             for i, (u, v) in enumerate(restrictions):
                 u = find(u)
                 v = find(v)
-                restrictions[i] = [u, v]
+                restrictions[i] = (u, v)
                 if (a == u and b == v) or (a == v and b == u):
                     res.append(False)
                     break
