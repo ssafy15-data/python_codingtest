@@ -1,3 +1,5 @@
+# 계단 오르기 - Silver 3
+
 n = int(input())
 arr = []
 for _ in range(n):
