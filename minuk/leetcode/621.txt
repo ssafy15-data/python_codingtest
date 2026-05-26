@@ -1,0 +1,17 @@
+from collections import defaultdict
+
+class Solution:
+    def leastInterval(self, tasks: List[str], n: int) -> int:
+        d = defaultdict(int)
+        for task in tasks:
+            d[task] += 1
+        
+        count, max_val = 0, 0
+        for key, value in d.items():
+            if (max_val < value):
+                max_val = value
+                count = 1
+            elif (max_val == value):
+                count += 1
+        
+        return max(len(tasks), (max_val - 1) * (n + 1) + count)
